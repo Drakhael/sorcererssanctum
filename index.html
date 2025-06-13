@@ -6,19 +6,22 @@
   <title>Sorcerer's Sanctum</title>
   <style>
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: black;
     }
-    body {
-      background-image: url('logo.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #000; /* fallback */
+
+    img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
     }
   </style>
 </head>
 <body>
+  <img src="logo_cropped.jpeg" alt="Sorcerer's Sanctum Logo" />
 </body>
 </html>
