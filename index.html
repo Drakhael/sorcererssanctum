@@ -2,30 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sorcerer's Sanctum</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      background-color: black;
-    }
-
     body {
-      overflow: hidden;
+      margin: 0;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
     img {
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      display: block;
+      max-width: 100%;
+      max-height: 100vh;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Sorcerer's Sanctum Logo" />
+  <img src="Logo.PNG" alt="Sorcerer's Sanctum Logo">
 </body>
 </html>
