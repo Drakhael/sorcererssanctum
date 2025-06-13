@@ -17,6 +17,7 @@
 
     body {
       position: relative;
+      overflow: hidden;
     }
 
     img {
@@ -27,6 +28,7 @@
       height: 100vh;
       object-fit: cover;
       z-index: 0;
+      animation: zoom 15s ease-in-out infinite alternate;
     }
 
     .coming-soon {
@@ -34,11 +36,27 @@
       bottom: 30px;
       width: 100%;
       text-align: center;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       z-index: 1;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      animation: fadeIn 2s ease-out, glow 2.5s infinite ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
+      50% { text-shadow: 0 0 20px #FF4500, 0 0 30px #FF4500; }
+    }
+
+    @keyframes zoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
     }
   </style>
 </head>
