@@ -5,27 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sorcerer's Sanctum</title>
   <style>
-    * {
+    body {
       margin: 0;
-      padding: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    body, html {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background: black;
-    }
-
-    .fullscreen-logo {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+    .logo {
+      max-width: 90%;
+      width: 700px;
+      height: auto;
       display: block;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Sorcerer's Sanctum Logo" class="fullscreen-logo" />
+  <img src="logo.png" alt="Sorcerer's Sanctum Logo" class="logo" />
 </body>
 </html>
