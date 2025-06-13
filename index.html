@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sorcerer's Sanctum</title>
-
-  <!-- Mystical font -->
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-
   <style>
     html, body {
       margin: 0;
@@ -15,92 +11,21 @@
       height: 100%;
       width: 100%;
       background-color: black;
-      font-family: 'UnifrakturCook', cursive;
-      color: white;
-      overflow: hidden;
     }
 
     body {
-      position: relative;
+      overflow: hidden;
     }
 
-    img.logo {
-      position: absolute;
-      top: 0;
-      left: 0;
+    img {
       width: 100vw;
       height: 100vh;
       object-fit: cover;
-      z-index: 0;
-      animation: zoom 15s ease-in-out infinite alternate;
-    }
-
-    .coming-soon {
-      position: absolute;
-      bottom: 30px;
-      width: 100%;
-      text-align: center;
-      font-size: 3rem;
-      z-index: 3;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      animation: flicker 3s infinite ease-in-out;
-      color: #FFD700;
-      text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00;
-    }
-
-    .mist {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: url('https://i.imgur.com/0i2BT5I.png') repeat;
-      opacity: 0.08;
-      animation: drift 60s linear infinite;
-      z-index: 1;
-    }
-
-    .lightning {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: white;
-      opacity: 0;
-      z-index: 2;
-      animation: lightning 12s infinite;
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 1; text-shadow: 0 0 10px #FFD700, 0 0 20px #FF8C00; }
-      50% { opacity: 0.7; text-shadow: 0 0 15px #FF4500, 0 0 25px #FF4500; }
-      75% { opacity: 0.9; }
-    }
-
-    @keyframes drift {
-      from { transform: translate(0, 0); }
-      to { transform: translate(-50%, -50%); }
-    }
-
-    @keyframes lightning {
-      0%, 97%, 100% { opacity: 0; }
-      98% { opacity: 0.7; }
-      99% { opacity: 0; }
-    }
-
-    @keyframes zoom {
-      from { transform: scale(1); }
-      to { transform: scale(1.05); }
+      display: block;
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="Sorcerer's Sanctum Logo" class="logo" />
-  <div class="mist"></div>
-  <div class="lightning"></div>
-  <div class="coming-soon">Coming Soon</div>
+  <img src="logo.png" alt="Sorcerer's Sanctum Logo" />
 </body>
 </html>
