@@ -8,32 +8,32 @@
     body {
       margin: 0;
       background-color: black;
-      color: #888;
-      font-family: 'Georgia', serif;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      position: relative;
     }
 
     .logo {
       max-width: 90%;
       width: 700px;
       height: auto;
+      display: block;
     }
 
-    footer {
+    .footer {
       position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #555;
-      text-align: center;
+      bottom: 10px;
+      left: 15px;
+      color: #444;
+      font-size: 0.75rem;
+      font-family: 'Georgia', serif;
     }
   </style>
 </head>
 <body>
   <img src="logo.png" alt="Sorcerer's Sanctum Logo" class="logo" />
-  <footer>&copy; 2025 Drakhael. All rights reserved.</footer>
+  <div class="footer">&copy; 2025 Sorcerer's Sanctum</div>
 </body>
 </html>
