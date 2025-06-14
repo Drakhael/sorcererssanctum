@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sigil Creator – Sorcerer's Sanctum</title>
+  <style>
+    body {
+      background-color: #000;
+      color: gold;
+      font-family: 'Cinzel', serif;
+      text-align: center;
+      padding: 2em;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    input, textarea, button, select {
+      background: #111;
+      color: gold;
+      border: 1px solid gold;
+      padding: 0.7em;
+      margin: 0.5em;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    canvas {
+      border: 1px solid gold;
+      margin-top: 2em;
+      background: #000;
+    }
+
+    button:hover {
+      background: gold;
+      color: black;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 3em;
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sigil Creator</h1>
+  <p>Create your mystical sigil. Powered by Sorcerer’s Sanctum.</p>
+
+  <textarea id="intent" placeholder="Type your magical intent here..." rows="3"></textarea><br/>
+
+  <label>
+    <input type="checkbox" id="removeVowels" checked />
+    Remove vowels
+  </label>
+  <label>
+    <input type="checkbox" id="removeDuplicates" checked />
+    Remove duplicate letters
+  </label><br/>
+
+  <button onclick="createSigil()">Generate Sigil</button>
+  <button onclick="downloadSigil()">Download PNG</button>
+
+  <canvas id="sigilCanvas" width="500" height="500"></canvas>
+
+  <footer>&copy; 2025 Sorcerer's Sanctum</footer>
+
+  <script>
+    function cleanText(text, removeVowels, removeDuplicates) {
+      text = text.toUpperCase().replace(/[^A-Z]/g, '');
+      if (removeVowels) text = text.replace(/[AEIOU]/g, '');
+      if (removeDuplicates) {
+        text = [...new Set(text)].join('');
+      }
+      return text;
+    }
+
+    function getLetterPositions() {
+      const grid = [
+        "ABCDEF",
+        "GHIJKL",
+        "MNOPQR",
+        "STUVWX",
+        "YZ"
+      ];
+      const map = {};
+      grid.forEach((row, y) => {
+        [...row].forEach((char, x) => {
+          map[char] = {
+            x: (x + 1) * (500 / (row.length + 1)),
+            y: (y + 1) * 100
+          };
+        });
+      });
+      return map;
+    }
+
+    function createSigil() {
+      const intent = document.getElementById('intent').value;
+      const removeVowels = document.getElementById('removeVowels').checked;
+      const removeDuplicates = document.getElementById('removeDuplicates').checked;
+
+      const letters = cleanText(intent, removeVowels, removeDuplicates);
+      const positions = getLetterPositions();
+      const canvas = document.getElementById('sigilCanvas');
+      const ctx = canvas.getContext('2d');
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.strokeStyle = "gold";
+      ctx.lineWidth = 3;
+      ctx.shadowColor = "gold";
+      ctx.shadowBlur = 12;
+
+      ctx.beginPath();
+      for (let i = 0; i < letters.length; i++) {
+        const pos = positions[letters[i]];
+        if (!pos) continue;
+        if (i === 0) ctx.moveTo(pos.x, pos.y);
+        else ctx.lineTo(pos.x, pos.y);
+      }
+      ctx.stroke();
+
+      if (letters.length > 0) {
+        const endPos = positions[letters[letters.length - 1]];
+        ctx.beginPath();
+        ctx.arc(endPos.x, endPos.y, 6, 0, 2 * Math.PI);
+        ctx.fillStyle = "gold";
+        ctx.fill();
+      }
+    }
+
+    function downloadSigil() {
+      const canvas = document.getElementById('sigilCanvas');
+      const link = document.createElement('a');
+      link.download = 'sigil.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    }
+  </script>
+</body>
+</html>
