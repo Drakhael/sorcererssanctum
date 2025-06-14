@@ -1,51 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Sorcerer's Sanctum</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      width: 100%;
       background-color: #000;
-      overflow: hidden;
       font-family: 'Cinzel', serif;
+      display: flex;
     }
 
-    /* Fullscreen logo wallpaper */
-    .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    /* Sidebar menu */
+    /* Permanent sidebar */
     .sidebar {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
+      width: 250px;
       background-color: #000;
-      overflow-x: hidden;
-      transition: 0.3s;
-      padding-top: 60px;
-      z-index: 2;
       border-right: 1px solid gold;
+      padding-top: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: fixed;
+      left: 0;
+      top: 0;
+      height: 100%;
+      z-index: 2;
     }
 
     .sidebar a {
-      padding: 20px 40px;
+      padding: 20px 30px;
       text-decoration: none;
       font-size: 30px;
       color: gold;
-      display: block;
+      width: 100%;
       transition: 0.2s;
     }
 
@@ -54,47 +43,38 @@
       color: black;
     }
 
-    /* Bigger sidebar toggle icon */
-    .openbtn {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-size: 50px;
-      background: none;
-      color: gold;
-      border: none;
-      z-index: 3;
-      cursor: pointer;
-      padding: 10px 15px;
+    /* Main content with logo */
+    .main {
+      margin-left: 250px; /* matches sidebar width */
+      width: calc(100% - 250px);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
     }
 
-    .openbtn:hover {
-      color: #ffcc00;
+    .main img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
 
-  <!-- Wallpaper-style logo -->
-  <img src="logoembossed.PNG" alt="Sorcerer's Sanctum Wallpaper" class="background">
-
-  <!-- Sidebar menu -->
-  <div id="mySidebar" class="sidebar">
+  <!-- Sidebar menu (always visible) -->
+  <div class="sidebar">
     <a href="index.html">Home</a>
     <a href="sanctum.html">Enter Sanctum</a>
     <a href="sigil.html">Sigil Creator</a>
     <a href="#">Other Realms</a>
   </div>
 
-  <!-- Sidebar toggle button -->
-  <button class="openbtn" onclick="toggleSidebar()">☰</button>
-
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById("mySidebar");
-      sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
-    }
-  </script>
+  <!-- Main content with logo scaled to remaining space -->
+  <div class="main">
+    <img src="logoembossed.PNG" alt="Sorcerer's Sanctum Logo">
+  </div>
 
 </body>
 </html>
