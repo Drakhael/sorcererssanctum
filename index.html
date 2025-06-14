@@ -43,21 +43,19 @@
       color: gold;
     }
 
-    /* Main content with logo */
+    /* Main content with full-stretch logo */
     .main {
       margin-left: 250px;
       width: calc(100% - 250px);
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #000;
+      overflow: hidden;
     }
 
     .main img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
   </style>
 </head>
@@ -71,7 +69,7 @@
     <a href="#">Other Realms</a>
   </div>
 
-  <!-- Main content with logo scaled to remaining space -->
+  <!-- Main content with full-cover logo -->
   <div class="main">
     <img src="logoembossed.PNG" alt="Sorcerer's Sanctum Logo">
   </div>
