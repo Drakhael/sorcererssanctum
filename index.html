@@ -10,18 +10,91 @@
       height: 100%;
       width: 100%;
       background-color: #000;
+      overflow: hidden;
+      font-family: 'Cinzel', serif;
     }
 
-    img {
-      width: 100%;
+    /* Fullscreen logo wallpaper */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
       height: 100%;
-      object-fit: contain;
-      display: block;
+      width: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Sidebar menu */
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
       background-color: #000;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+      z-index: 2;
+      border-right: 1px solid gold;
+    }
+
+    .sidebar a {
+      padding: 16px 30px;
+      text-decoration: none;
+      font-size: 22px;
+      color: gold;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .sidebar a:hover {
+      background-color: gold;
+      color: black;
+    }
+
+    /* Bigger sidebar toggle icon */
+    .openbtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 50px;
+      background: none;
+      color: gold;
+      border: none;
+      z-index: 3;
+      cursor: pointer;
+      padding: 10px 15px;
+    }
+
+    .openbtn:hover {
+      color: #ffcc00;
     }
   </style>
 </head>
 <body>
-  <img src="logoembossed.PNG" alt="Sorcerer's Sanctum Wallpaper">
+
+  <!-- Wallpaper-style logo -->
+  <img src="logoembossed.PNG" alt="Sorcerer's Sanctum Wallpaper" class="background">
+
+  <!-- Sidebar menu -->
+  <div id="mySidebar" class="sidebar">
+    <a href="index.html">Home</a>
+    <a href="sanctum.html">Enter Sanctum</a>
+    <a href="sigil.html">Sigil Creator</a>
+    <a href="#">Other Realms</a>
+  </div>
+
+  <!-- Sidebar toggle button -->
+  <button class="openbtn" onclick="toggleSidebar()">☰</button>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("mySidebar");
+      sidebar.style.width = sidebar.style.width === "250px" ? "0" : "250px";
+    }
+  </script>
+
 </body>
 </html>
